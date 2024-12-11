@@ -11,7 +11,7 @@ if (app.documents.length > 0) {
   var panel = dlg.add("panel", undefined, "Select Artboards");
   panel.alignChildren = "left"; // Align panel elements to the left
 
-  // AAdd space between title and checkboxes
+  // Add space between title and checkboxes
   panel.add("statictext", undefined, " "); // Empty space
 
   // Add checkboxes for each artboard
