@@ -2,7 +2,6 @@
 if (app.documents.length > 0) {
   var doc = app.activeDocument;
   var artboards = doc.artboards;
-  var artboardNames = [];
 
   // Crear el cuadro de diálogo
   var dlg = new Window("dialog", "Tercios");
@@ -12,10 +11,12 @@ if (app.documents.length > 0) {
   var panel = dlg.add("panel", undefined, "Selecciona Artboards");
   panel.alignChildren = "left"; // Alinear los elementos del panel a la izquierda
 
+  // Agregar espacio entre el título y las casillas de verificación
+  panel.add("statictext", undefined, " "); // Espacio vacío
+
   // Agregar casillas de verificación para cada artboard
   for (var i = 0; i < artboards.length; i++) {
     var artboardName = artboards[i].name;
-    artboardNames.push(artboardName);
     panel.add("checkbox", undefined, artboardName);
   }
 
@@ -28,8 +29,8 @@ if (app.documents.length > 0) {
   // Función para aplicar las reglas de tercios a los artboards seleccionados
   applyButton.onClick = function () {
     for (var j = 0; j < artboards.length; j++) {
-      if (panel.children[j].value) {
-        // Verificar si la casilla está seleccionada
+      if (panel.children[j + 1].value) {
+        // Verificar si la casilla está seleccionada (ajustar índice)
         drawGuides(artboards[j]);
       }
     }
