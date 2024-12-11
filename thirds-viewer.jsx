@@ -5,7 +5,7 @@ if (app.documents.length > 0) {
 
   // Create the dialog
   var dlg = new Window("dialog", "Thirds-Viewer");
-  dlg.alignChildren = "fill"; // Alinear los elementos del diálogo
+  dlg.alignChildren = "fill"; // Align dialog elements
 
   // Create a panel for artboard options
   var panel = dlg.add("panel", undefined, "Select Artboards");
